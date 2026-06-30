@@ -19,7 +19,9 @@
             <div class="col-lg-3">
                 <div class="card border-0 shadow mb-4 p-3">
                     <div class="s-body text-center mt-3">
+  
                         <img src="assets/images/avatar7.png" alt="avatar"  class="rounded-circle img-fluid" style="width: 150px;">
+                        
                         <h5 class="mt-3 pb-0">Farooq Sultan</h5>
                         <p class="text-muted mb-1 fs-6">Full Stack Developer</p>
                         <div class="d-flex justify-content-center mb-2">
@@ -31,10 +33,10 @@
                     <div class="card-body p-0">
                         <ul class="list-group list-group-flush ">
                             <li class="list-group-item d-flex justify-content-between p-3">
-                                <a href="/account">Account Settings</a>
+                                <a href="/accountsetting">Account Settings</a>
                             </li>
                             <li class="list-group-item d-flex justify-content-between align-items-center p-3">
-                                <a href="/postjob">Post a Job</a>
+                                <a href="/jobpost">Post a Job</a>
                             </li>
                             <li class="list-group-item d-flex justify-content-between align-items-center p-3">
                                 <a href="/myjobs">My Jobs</a>
@@ -49,7 +51,12 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-9">
+  {{-- <form action="{{ route('job.save') }}" method="POST">
+    @csrf --}}
+
+<div class="col-lg-9">
+          <form action="{{ route('job.save') }}" method="POST">
+    @csrf
                 <div class="card border-0 shadow mb-4 ">
                     <div class="card-body card-form p-4">
                         <h3 class="fs-4 mb-1">Job Details</h3>
@@ -62,10 +69,10 @@
                                 <label for="" class="mb-2">Category<span class="req">*</span></label>
                                 <select name="category" id="category" class="form-control">
                                     <option value="">Select a Category</option>
-                                    <option value="">Engineering</option>
-                                    <option value="">Accountant</option>
-                                    <option value="">Information Technology</option>
-                                    <option value="">Fashion designing</option>
+                                    <option value="Engineering">Engineering</option>
+                                    <option value="Accountant">Accountant</option>
+                                    <option value="Information Technology">Information Technology</option>
+                                    <option value="Fashion designing">Fashion designing</option>
                                 </select>
                             </div>
                         </div>
@@ -73,7 +80,7 @@
                         <div class="row">
                             <div class="col-md-6 mb-4">
                                 <label for="" class="mb-2">Job Nature<span class="req">*</span></label>
-                                <select class="form-select">
+                               <select class="form-select" name="job_nature">
                                     <option>Full Time</option>
                                     <option>Part Time</option>
                                     <option>Remote</option>
@@ -88,6 +95,8 @@
 
                         <div class="row">
                             <div class="mb-4 col-md-6">
+
+  
                                 <label for="" class="mb-2">Salary</label>
                                 <input type="text" placeholder="Salary" id="salary" name="salary" class="form-control">
                             </div>
@@ -127,12 +136,12 @@
                         <div class="row">
                             <div class="mb-4 col-md-6">
                                 <label for="" class="mb-2">Name<span class="req">*</span></label>
-                                <input type="text" placeholder="Company Name" id="company_name" name="company_name" class="form-control">
+                                <input type="text" placeholder="Company Name" id="company" name="company" class="form-control">
                             </div>
 
                             <div class="mb-4 col-md-6">
                                 <label for="" class="mb-2">Location</label>
-                                <input type="text" placeholder="Location" id="location" name="location" class="form-control">
+                                <input type="text" placeholder="location" id="location" name="location" class="form-control">
                             </div>
                         </div>
 
@@ -142,11 +151,14 @@
                         </div>
                     </div> 
                     <div class="card-footer  p-4">
-                        <button type="button" class="btn btn-primary">Save Job</button>
+                                            <button type="submit" class="btn btn-primary">
+    Save Job
+</button>
+</form>
                     </div>               
             </div>
             
-        </div>
+        </div> 
     </div>
 </section>
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -173,3 +185,7 @@
   </div>
 </div>
 @endsection
+
+
+
+

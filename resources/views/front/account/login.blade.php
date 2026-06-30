@@ -55,7 +55,7 @@ $("#loginForm").submit(function(e){
       success: function(response){
 
     if(response.status == true){
-        window.location.href = "/postjob";
+        window.location.href = "/jobpost";
     } else {
         alert(response.message);
     }

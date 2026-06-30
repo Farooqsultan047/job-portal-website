@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Job;
 
 class JobController extends Controller
 {
@@ -15,6 +16,15 @@ class JobController extends Controller
     public function findjob(){
         return view ('front.job.findjob');
     }
+
+
+
+
+
+
+
+
+
 
 
     public function jobdetail(){
@@ -33,10 +43,21 @@ class JobController extends Controller
         return view('front.job.accountsetting');
     }
 
-    public function savejob(){
-     return   view('front.job.savejob');
-    } 
+ public function savedJobs()
+{
+    return view('front.job.savejob');
+}
 
-    
+public function storeJob(Request $request)
+{
+   Job::create([
+    'title' => $request->title,
+    'company' => $request->company,
+    'location' => $request->location,
+    'salary' => $request->salary,
+]);
+
+    return redirect()->back();
+}
 }
 

@@ -17,46 +17,61 @@
 </head>
 <body data-instant-intensity="mousedown">
 <header>
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow py-3">
+    <div class="container">
+        <a class="navbar-brand" href="{{ url('/') }}">CareerVibe</a>
 
-	<nav class="navbar navbar-expand-lg navbar-light bg-white shadow py-3">
-		<div class="container">
-			<a class="navbar-brand" href="{{ url('/') }}">CareerVibe</a>
-			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<ul class="navbar-nav ms-0 ms-sm-0 me-auto mb-2 mb-lg-0 ms-lg-4">
-					<li class="nav-item">
-						<a class="nav-link" aria-current="page" href="{{ url('/') }}">Home</a>
-					</li>	
-					<li class="nav-item">
-						<a class="nav-link" aria-current="page" href="{{ url('/jobs') }}">Find Jobs</a>
-					</li>										
-				</ul>		
-				
-				<!-- 🟢 YEH NAYA BUTTON (Green color - bilkul clear dikhega) -->
-				<a class="btn btn-success me-2 text-white" data-bs-toggle="modal" data-bs-target="#exampleModal" type="button">
-					<i class="fa fa-user"></i> Profile
-				</a>
-				
-				@guest
-    <a class="btn btn-outline-primary me-2" href="{{ url('/login') }}">
-        Login
-    </a>
-@endguest
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-@auth
-    <a class="btn btn-outline-danger me-2" href="{{ route('account.logout') }}">
-        Logouts
-    </a>
-@endauth
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-<a class="btn btn-primary" href="{{ url('/postjob') }}">
-    Post a Job
-</a>
-			</div>
-		</div>
-	</nav>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+
+                <!-- Sab ke liye -->
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('/') }}">Home</a>
+                </li>
+
+                <!-- Sirf Login User ke liye -->
+                @auth
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('/jobs') }}">Find Jobs</a>
+                </li>
+                @endauth
+
+            </ul>
+
+            <!-- Sirf Login User ke liye -->
+            @auth
+            <a class="btn btn-success me-2 text-white"
+               data-bs-toggle="modal"
+               data-bs-target="#exampleModal">
+                <i class="fa fa-user"></i> Profile
+            </a>
+
+            <a class="btn btn-primary me-2" href="{{ url('/jobpost') }}">
+                Post a Job
+            </a>
+
+            <a class="btn btn-outline-danger" href="{{ route('account.logout') }}">
+                Logout
+            </a>
+			
+            @endauth
+
+            <!-- Sirf Guest User ke liye -->
+            @guest
+            <a class="btn btn-inline-primary" href="{{ route('account.login') }}">
+                Login
+            </a>
+            @endguest
+
+        </div>
+    </div>
+</nav>
 </header>
 
    @yield('main')
