@@ -60,6 +60,7 @@ public function logout()
 
     
    public function processRegistration(Request $request) {
+    
     // 1️ Validation Rules
     $validator = Validator::make($request->all(), [
         'name' => 'required|string|max:255',
@@ -86,7 +87,7 @@ public function logout()
 
     // 4️ Success Response
 
-    
+       
     return response()->json([
         'status' => true,
         'message' => 'Registration successful!',

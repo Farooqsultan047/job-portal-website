@@ -66,3 +66,20 @@ Admin Dashboard
 
 
 
+✅ Register
+✅ Login
+✅ Logout
+✅ Post Job
+✅ Show Jobs
+✅ Job Detail
+
+⬇ NEXT
+
+1. Add user_id to jobs table
+2. My Jobs
+3. Edit Job
+4. Delete Job
+5. Profile Update
+6. Change Password
+7. Save Jobs
+8. Apply Job

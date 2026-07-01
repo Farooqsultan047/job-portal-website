@@ -39,7 +39,7 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/jobpost', [JobController::class,'jobpost'])->name('job.jobpost');
 Route::get('/jobs',[JobController::class,'findjob'])->name('job.findjob'); 
-Route::get('/jobdetail',[JobController::class,'jobdetail'])->name('jobdetail');
+Route::get('/jobdetail/{id}',[JobController::class,'jobdetail'])->name('jobdetail');
 Route::get('/myjobs', [JobController::class,'myjob'])->name('myjob');
 Route::get('/jobapplied', [JobController::class,'jobapplied'] )->name('jobapplied');
 Route::get('/savedjobs',
